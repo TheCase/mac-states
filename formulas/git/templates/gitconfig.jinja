@@ -1,0 +1,26 @@
+[alias]
+	last = cat-file commit HEAD
+	l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ad%Creset'
+	stat = status -sb
+
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+
+[format]
+	pretty = oneline
+
+[user]
+	email = {{ salt['pillar.get']('git:email', '') }}
+	name = {{ salt['pillar.get']('git:name', '') }}
+
+[branch]
+	autosetuprebase = always
+
+[push]
+	default = simple
+
+[core]
+	excludesfile = /Users/{{ salt['pillar.get']('username') }}/.gitignore_global

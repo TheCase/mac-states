@@ -1,0 +1,64 @@
+syntax enable
+set nocompatible
+set autoindent
+set shell=bash
+set number
+set splitbelow
+set splitright
+
+colorscheme desert
+map <C-c> "+y<CR>
+set backspace=indent,eol,start
+
+"removed need to hold shift to enter command mode
+nore ; :
+
+"enable these so i can set filetype specific stuff
+filetype on
+filetype plugin on
+filetype plugin indent on
+
+set laststatus=2
+set statusline=%<%f%=\ [%1*%M%*%n%R]\ y\ %-19(%3l,%02c%03V%)
+
+au FileType c set cindent
+au FileType c set tabstop=4
+au FileType c set shiftwidth=4
+au FileType c set softtabstop=4
+au FileType c set expandtab
+au FileType yaml set cindent
+au FileType yaml set tabstop=2
+au FileType yaml set shiftwidth=2
+au FileType yaml set softtabstop=2
+au FileType yaml set expandtab
+au FileType sh set smartindent
+au FileType sh set tabstop=2
+au FileType sh set softtabstop=2
+au FileType sh set shiftwidth=2
+au FileType sh set expandtab
+au FileType python set smartindent
+au FileType python set autoindent
+au FileType python set textwidth=99 " PEP-8 friendly size
+au FileType python set tabstop=4 "4 spaces instead of 8
+au FileType python set shiftwidth=4 "keep indentation
+au FileType python set expandtab "convert tabs to spaces
+
+"mouse stuff
+nmap <A-LeftMouse> ms<LeftMouse><C-v>`so
+imap <A-LeftMouse> <Esc><C-v>`^ms<Esc>gi<LeftMouse><C-o><C-v>`so
+vmap <A-LeftDrag> <LeftDrag>
+vmap <A-LeftMouse> <C-v><LeftMouse>msgv`s
+vmap <S-LeftMouse> v<LeftMouse>msgv`s
+set mouse=a
+
+"make searching highlight all that ish
+set hlsearch
+
+"ignore case when searching
+set smartcase
+
+"ensure I don't go over 120 chars per line
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%121v.\+/
+
+set paste

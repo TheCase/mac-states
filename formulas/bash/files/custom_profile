@@ -1,0 +1,44 @@
+unset MAILCHECK
+
+shopt -s cdspell
+shopt -s histappend
+shopt -s histappend
+shopt -s checkwinsize
+
+export EDITOR=vim
+export GPG_TTY='tty'
+export P4USER='SMiller'
+export P4CLIENT='oxygen'
+export P4PASSWD='SMiller123'
+export HISTSIZE=100000000
+export HISTCONTROL=ignoredups
+export PYTHONDONTWRITEBYTECODE=0
+export PROMPT_COMMAND='history -a'
+export LSCOLORS='Gxfxcxdxdxegedabagacad'
+export P4PORT='10.56.25.192:1666'
+export HISTIGNORE="&:history:ls:ls * ps:ps -A:[bf]g:exit"
+export HISTTIMEFORMAT="[$(tput setaf 6)%F %T$(tput sgr0)]: "
+export PATH="~/.bin:/usr/local/bin/:/usr/local/Cellar/ruby/2.1.3_1/bin/:$PATH"
+export PS1='\[\033[01;35m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] '
+export VAGRANT_DEFAULT_PROVIDER=virtualbox
+export DOCKER_HOST=tcp://localhost:2375
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/
+
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/sethmiller/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
+alias ls='ls -Go'
+alias vi=vim
+alias tree='tree -AC'
+alias grep='grep --color=auto'
+alias nmapf='nmap -sV -F -R -Pn'
+alias dig='dig +search +noall +answer'
+alias screwgoogle='rm -rf Library/Google/ Library/Application\ Support/Google/ Library/Caches/Google'
+alias screwfirefox='rm -rf Library/Application\ Support/Firefox/ Library/Caches/Firefox/'
+
+function myip {
+  # Get the public IP when NAT'd up
+  res=$(curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+')
+  echo -e "Your public IP is: ${echo_bold_green} $res ${echo_normal}"
+}
