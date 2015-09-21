@@ -79,6 +79,7 @@ au FileType go nmap <leader>c <Plug>(go-coverage)
 
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go'
+Plug 'saltstack/salt-vim'
 call plug#end()
 
 

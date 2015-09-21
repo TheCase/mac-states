@@ -11,3 +11,4 @@ base:
     - atom
     - evernote
     - vagrant
+    - salt
