@@ -6,3 +6,17 @@ salt.saltme_script:
     - contents: |
         #!/bin/bash
         sudo salt-call --local state.highstate -l critical --state-output=changes $@
+
+salt.minion:
+  file.managed:
+    - name: /etc/salt/minion
+    - user: root
+    - contents: |
+        file_client: local
+        file_roots:
+          base:
+            - /srv/salt
+            - /srv/formulas
+        pillar_roots:
+          base:
+            - /srv/pillar
