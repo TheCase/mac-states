@@ -45,6 +45,7 @@ au FileType python set textwidth=99 " PEP-8 friendly size
 au FileType python set tabstop=4 "4 spaces instead of 8
 au FileType python set shiftwidth=4 "keep indentation
 au FileType python set expandtab "convert tabs to spaces
+au FileType python nnoremap <leader>r  :!clear; python %<CR>
 
 "mouse stuff
 nmap <A-LeftMouse> ms<LeftMouse><C-v>`so
